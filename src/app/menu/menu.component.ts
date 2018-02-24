@@ -14,7 +14,7 @@ const DISHES: Dish[] = [
 
   {
     name: 'pakoda',
-    image: '/assets/img/aziz-acharki-253909.jpg',
+    image: '/assets/img/Pakora.jpg',
     category: 'appetizer',
     label: '',
     price: '1.99',
@@ -24,7 +24,7 @@ const DISHES: Dish[] = [
 
   {
     name: 'Vadonut',
-    image: '/assets/img/greg-rakozy-38802.jpg',
+    image: '/assets/img/nut.jpeg',
     category: 'appetizer',
     label: 'New',
     price: '1.99',
@@ -33,7 +33,7 @@ const DISHES: Dish[] = [
 
   {
     name: 'Cheese Cake',
-    image: '/assets/img/nasa-63032.jpg',
+    image: '/assets/img/cake.jpeg',
     category: 'dessert',
     label: '',
     price: '2.99',
