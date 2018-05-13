@@ -19,3 +19,17 @@ $background-moredark: #4527A0;
 .active {
   background: $background-moredark;
 }
+
+@media (max-width:600px) {
+  .nav {
+    display: flex;
+    // flex-direction: row;
+    flex-flow: wrap;
+    // width: 50px;
+  }
+  .active {
+    background: none;
+    background-blend-mode: soft-light;
+  }
+
+}
