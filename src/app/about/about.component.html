@@ -55,15 +55,20 @@
   </div>
 
 
-  <div fxFlex>
+  <div fxFlex *ngIf="leaders">
     <h2>Corporate Leadership</h2>
-    <md-list *ngFor="let leader of leaders">
+    <md-list fxFlexLayout="column" fxFlexLayout.gt-sm="row" *ngFor="let leader of leaders">
       <img height='60px' width="60px" src={{leader.image}} alt={{leader.name}}>
-      <div fxFlex class='leader'>
-        <md-list-item><b>{{leader.name}} {{leader.abbr}}</b></md-list-item>
-        <md-list-item>{{leader.designation}}</md-list-item>
-        <md-list-item>{{leader.description}}</md-list-item>
+      <div fxFlexLayout="row" class='leader'>
+        <div>
+            <md-list-item><b>{{leader.name}} {{leader.abbr}}</b></md-list-item>
+            <md-list-item>{{leader.designation}}</md-list-item>
+            <md-list-item>{{leader.description}}</md-list-item>
+        </div>
       </div>            
     </md-list>
+  </div>
+  <div [hidden]="leaders">
+    <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
   </div>
 </div>
