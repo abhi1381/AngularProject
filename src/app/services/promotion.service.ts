@@ -4,7 +4,7 @@ import { PROMOTIONS } from '../shared/promotions';
 // import { resolve } from 'url';
 
 import { Observable } from 'rxjs/Observable';
-
+import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/delay';
 
 @Injectable()
