@@ -25,8 +25,8 @@
       </md-card-actions>
     </md-card>
   </div>
-  <div fxFlex="40">
-    <md-list *ngIf="dish">
+  <div fxFlex="40" *ngIf="dish">
+    <md-list fxFlexLayout="column">
       <h1 md-line>
         <b>Comments</b>
       </h1> 
@@ -36,9 +36,44 @@
         <p md-line>-- {{comment.author}}<span> {{comment.date | date}}</span></p>
       </md-list-item>
     </md-list>
+    <md-list *ngIf="commentsForm.valid">
+      <md-list-item>
+        <p md-line> {{commentsForm.get('comment').value}}  </p>
+        <p md-line> {{commentsForm.get('rating').value}} Stars</p>
+        <p md-line><span>-- {{commentsForm.get('author').value}}</span> </p>
+      </md-list-item>
+    </md-list>
+    <div fxFlexLayout="column">
+      <form novalidate [formGroup]="commentsForm" (ngSubmit)="onSubmit()"> 
+          <p>
+            <md-input-container class="full-width" dividerColor="{{(formErrors.author) ? 'warn' : 'primary'}}">
+              <input mdInput formControlName="author" placeholder="Name" type="text" value="author">
+              <md-hint>
+                <span [hidden]="!(formErrors.author)">
+                      {{formErrors.author}}</span>
+              </md-hint>
+            </md-input-container>
+          </p>
+          <p>
+            <md-slider thumbLabel tickInterval="1" step="1" min="1" max="5" value="5" formControlName="rating"></md-slider>
+          </p>
+          <p>
+            <md-input-container class="full-width" dividerColor="{{(formErrors.comment) ? 'warn' : 'primary'}}">
+              <textarea mdInput formControlName="comment" placeholder="Your comments" rows=10></textarea>
+              <md-hint>
+                <span [hidden]="!(formErrors.comment)">
+                      {{formErrors.comment}}</span>
+              </md-hint>
+            </md-input-container>
+          </p>
+          <p>
+            <button type="submit" md-button 
+            class="background-primary text-floral-white" [disabled]="commentsForm.invalid">Submit</button>          
+          </p>
+      </form>
+    </div>
   </div>
   <div [hidden]="dish">
     <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
   </div>
-
 </div>
