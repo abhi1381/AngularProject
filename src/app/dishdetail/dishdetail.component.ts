@@ -23,7 +23,7 @@ export class DishdetailComponent implements OnInit {
   prev: number;
   next: number;
   errMess: string;
-  dishCopy: null;
+  dishCopy: '';
 
     formErrors = {
     'author': '',
