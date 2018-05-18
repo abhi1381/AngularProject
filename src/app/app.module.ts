@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import { baseURL } from './shared/baseurl';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -23,6 +24,7 @@ import { ContactComponent } from './contact/contact.component';
 import {PromotionService} from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 import { LoginComponent } from './login/login.component';
+import {ProcessHttpmsgService} from './services/process-httpmsg.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,10 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [DishService, PromotionService, LeaderService],
+  providers: [DishService, PromotionService, LeaderService,
+    { provide: 'BaseURL', useValue: baseURL },
+    ProcessHttpmsgService
+  ],
   entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })

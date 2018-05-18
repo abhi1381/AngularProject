@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 
 import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -15,19 +15,18 @@ import { Comment } from '../shared/comment';
   templateUrl: './dishdetail.component.html',
   styleUrls: ['./dishdetail.component.scss']
 })
+
 export class DishdetailComponent implements OnInit {
-  commentsForm: FormGroup;
   comment: Comment;
   dish: Dish;
   dishIds: number[];
   prev: number;
   next: number;
-  dishcopy: null;
+  errMess: string;
 
     formErrors = {
     'author': '',
-    'comment': '',
-    'rating': ''
+    'comment': ''
     };
 
   validationMessages = {
@@ -38,23 +37,24 @@ export class DishdetailComponent implements OnInit {
     },
     'comment': {
       'required': 'comment is required.',
-      'minlength': 'Last Name must be at least 2 characters long.'
-    },
-    'rating': {
-      'required': 'Rating is required.'
+      'minlength': 'comment must be at least 2 characters long.'
     }
   };
 
+  commentsForm: FormGroup;
+
+
   constructor(private dishservice: DishService, private route: ActivatedRoute,
-      private location: Location, private fb: FormBuilder) {
-          this.createForm();
+    private location: Location, private fb: FormBuilder, @Inject('BaseURL') public BaseURL) {
        }
 
   ngOnInit() {
+    this.createForm();
     this.dishservice.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
     this.route.params
       .switchMap((params: Params) => this.dishservice.getDish(+params['id']))
-      .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); });
+      .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); },
+      errmess => this.errMess = <any>errmess );
   }
 
   setPrevNext(dishId: number) {
