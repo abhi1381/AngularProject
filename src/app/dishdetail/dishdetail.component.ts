@@ -34,8 +34,8 @@ export class DishdetailComponent implements OnInit {
   prev: number;
   next: number;
   errMess: string;
-  dishCopy: '';
-  visibility: 'shown';
+  dishCopy;
+  visibility;
 
     formErrors = {
     'author': '',
