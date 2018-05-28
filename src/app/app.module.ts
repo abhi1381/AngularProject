@@ -27,6 +27,7 @@ import { LeaderService } from './services/leader.service';
 import { LoginComponent } from './login/login.component';
 import {ProcessHttpmsgService} from './services/process-httpmsg.service';
 import { HighlightDirective } from './directives/highlight.directive';
+import {FeedbackService} from './services/feedback.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { HighlightDirective } from './directives/highlight.directive';
   ],
   providers: [DishService, PromotionService, LeaderService,
     { provide: 'BaseURL', useValue: baseURL },
-    ProcessHttpmsgService
+    ProcessHttpmsgService, FeedbackService
   ],
   entryComponents: [LoginComponent],
   bootstrap: [AppComponent]

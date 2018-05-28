@@ -22,6 +22,7 @@ export class ContactComponent implements OnInit {
   feedbackForm: FormGroup;
   feedback: Feedback;
   contactType = ContactType;
+  errMess: string;
 
   formErrors = {
     'firstname': '',
@@ -71,7 +72,7 @@ export class ContactComponent implements OnInit {
     });
 
     this.feedbackForm.valueChanges
-      .subscribe(data => this.onValueChanged(data));
+      .subscribe(data => { this.onValueChanged(data); }, errmess => this.errMess = <any>errmess);
 
     this.onValueChanged(); // (re)set validation messages now
   }

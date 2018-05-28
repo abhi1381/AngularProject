@@ -96,6 +96,21 @@
       </p>
       <button type="submit" md-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">Submit</button>
     </form>
+    <div [hidden]="!submitted" [@visibility]="visibility" [@extend]>
+      <div fxFlex *ngIf="sglFeedback">
+        <h3>Your Submission</h3>
+        <md-list>
+          ...
+        </md-list>
+      </div>
+      <div [hidden]="sglFeedback || errMess">
+        <h3>Submitting Form</h3>
+        <md-spinner></md-spinner>
+      </div>
+      <div *ngIf="errMess">
+        <h2>Error</h2>
+        <h4>{{errMess}}</h4>
+      </div>
+    </div>
   </div>
-
 </div>

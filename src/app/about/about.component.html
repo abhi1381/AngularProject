@@ -71,4 +71,8 @@
   <div [hidden]="leaders">
     <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
   </div>
+  <div *ngIf="errmess">
+    <h2>Error</h2>
+    <h4>{{errmess}}</h4>
+  </div>
 </div>
