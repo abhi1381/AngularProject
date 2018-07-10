@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Feedback, ContactType } from '../shared/feedback';
 import { flyInOut, expand } from '../animations/app.animation';
-import { } from '@types/googlemaps';
+
 
 @Component({
   selector: 'app-contact',
@@ -19,13 +19,15 @@ import { } from '@types/googlemaps';
   ]
 })
 export class ContactComponent implements OnInit {
-  @ViewChild('gmap') gmapElement;
   @ViewChild('fform') feedbackFormDirective;
-  map: google.maps.Map;
 
    feedbackForm: FormGroup;
   feedback: Feedback;
   contactType = ContactType;
+
+  mapTitle = 'Map of our Location';
+  lat = 22.307998768;
+  long = 114.03933;
 
   formErrors = {
     'firstname': '',
@@ -61,12 +63,6 @@ export class ContactComponent implements OnInit {
    }
 
   ngOnInit() {
-    const mapProp = {
-      center: new google.maps.LatLng(22.307998768, 114.03933),
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
   }
 
   createForm(): void {

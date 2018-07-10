@@ -20,7 +20,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSliderModule } from '@angular/material/slider';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { AgmCoreModule } from '@agm/core';
 
 import 'hammerjs';
 
@@ -71,12 +71,15 @@ import { HighlightDirective } from './directives/highlight.directive';
     MatSlideToggleModule,
     MatProgressSpinnerModule,
     MatSliderModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAKxXkGs24HVoipLm9byFYPLhDK4OUn8tk'
+    })
   ],
   entryComponents: [
       LoginComponent
     ],
-  providers: [DishService,PromotionService,LeaderService],
+  providers: [DishService, PromotionService, LeaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

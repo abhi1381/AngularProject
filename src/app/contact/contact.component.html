@@ -38,9 +38,14 @@
       </div>
       <div fxFlex="40" fxLayout="column" id="mapflex">
           <div fxFlex>
-            <h3>Map of our Location</h3>
+            <h3>{{mapTitle}}</h3>
           </div>
-          <div fxFlex #gmap id="map"></div>
+          <agm-map fxFlex [latitude]= 'lat' [longitude]='long'
+           [zoom]='4' [fullscreenControl]='true' [mapTypeControl]='true'>
+            <agm-marker [latitude]='lat' [longitude]='long'>
+                <agm-info-window>Its Hong Kong</agm-info-window>
+            </agm-marker>
+          </agm-map>
       </div>
     </div>
   </div>
