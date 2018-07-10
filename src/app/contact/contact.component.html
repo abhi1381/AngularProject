@@ -1,4 +1,4 @@
-<div  fxLayout="column" fxLayoutGap="10px" style="margin: 20px">
+<div fxLayout="column" fxLayoutGap="10px" style="margin: 20px">
 
   <div fxFlex>
     <div>
@@ -15,16 +15,18 @@
       <div fxFlex="50" fxFlexOffset="20px">
         <h4>Our Address</h4>
         <address>
-          121, Clear Water Bay Road
-          <br> Clear Water Bay, Disney
-          <br> HONG KONG
-          <br>
-          <i class="fa fa-phone"></i>: +91123456789
-          <br>
-          <i class="fa fa-fax"></i>: +91123456789
-          <br>
-          <i class="fa fa-envelope"></i>:
-          <a href="mailto:confusion@food.net">abhilnm011@gmail.com</a>
+          <mat-card id="address">
+            121, Clear Water Bay Road
+            <br> Clear Water Bay, Disney
+            <br> HONG KONG
+            <br>
+            <i class="fa fa-phone"></i>: +91123456789
+            <br>
+            <i class="fa fa-fax"></i>: +91123456789
+            <br>
+            <i class="fa fa-envelope"></i>:
+            <a href="mailto:confusion@food.net">abhilnm011@gmail.com</a>
+          </mat-card>
         </address>
         <p></p>
         <div>
@@ -36,17 +38,16 @@
             <i class="fa fa-envelope-o"></i> Email</a>
         </div>
       </div>
-      <div fxFlex="40" fxLayout="column" id="mapflex">
-          <div fxFlex>
-            <h3>{{mapTitle}}</h3>
-          </div>
-          <agm-map fxFlex [latitude]= 'lat' [longitude]='long'
-           [zoom]='4' [fullscreenControl]='true' [mapTypeControl]='true'>
-            <agm-marker [latitude]='lat' [longitude]='long'>
-                <agm-info-window>Its Hong Kong</agm-info-window>
-            </agm-marker>
-          </agm-map>
-      </div>
+      <mat-card fxFlex="40" fxLayout="column" id="mapflex">
+        <div fxFlex>
+          <h3>{{mapTitle}}</h3>
+        </div>
+        <agm-map fxFlex [latitude]='lat' [longitude]='long' [zoom]='4' [fullscreenControl]='true' [mapTypeControl]='true'>
+          <agm-marker [latitude]='lat' [longitude]='long'>
+            <agm-info-window>Its Hong Kong</agm-info-window>
+          </agm-marker>
+        </agm-map>
+      </mat-card>
     </div>
   </div>
   <div fxFlex fxFlexOffset="20px" class="form-size">

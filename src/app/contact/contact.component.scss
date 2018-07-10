@@ -14,3 +14,43 @@ agm-map {
     height: 300px;
     width: 100%;
 }
+
+#address {
+    width: 60%;
+}
+
+#mapflex {
+    margin-top: 4px;
+}
+
+mat-form-field {
+    margin: 4px;
+}
+
+input:focus {
+    background: white;
+    border: 1px solid grey;
+    z-index: 3;
+    width: 100%;
+    height: 30px;
+    color: rgb(150, 150, 150);
+    font-size: 1.6em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: -8px;
+}
+
+textarea:focus {
+    background: white;
+    border: 1px solid grey;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    color: rgb(150, 150, 150);
+    font-size: 1.6em;
+    font-family: 'Gill Sans',
+    'Gill Sans MT',
+    Calibri,
+    'Trebuchet MS',
+    sans-serif;
+    margin-bottom: -6px;
+}
